@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+        <div class="container">
+            <h1 style="text-align:center;">Лабораторная работа №2</h1>
+
+            <h2>Автомобили</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Производитель</th>
+                  <th>Модель</th>
+                  <th>Тип кузова</th>
+                  <th>Цвет кузова</th>
+                  <th>КПП</th>
+                  <th>Стоимость</th>
+                  <th>Дата постановки на учет</th>
+                  <th>Объем двигателя</th>
+                  <th>Год</th>
+                  <th>Фото</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for a in aaa %}
+                        <tr>
+                            <th scope="row">{{a.id}}</th>
+                            <td>{{a.manufacturer}}</td>
+                            <td>{{a.model}}</td>
+                            <td>{{a.get_car_body_display}}</td>
+                            <td>{{a.color}}</td>
+                            <td>{{a.get_gearbox_type_display}}</td>
+                            <td>{{a.amount}}</td>
+                            <td>{{a.register_date}}</td>
+                            <td>{{a.engine_power}}</td>
+                            <td>{{a.year}}</td>
+                            <td>{{a.photo}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <h2>Клиенты</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Фамилия</th>
+                  <th>Имя</th>
+                  <th>Отчество</th>
+                  <th>Пол</th>
+                  <th>Номер телефона</th>
+                  <th>Адрес</th>
+                  <th>Номер паспорта</th>
+                  <th>ИНН</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for b in bbb %}
+                        <tr>
+                            <th scope="row">{{b.id}}</th>
+                            <td>{{b.surname}}</td>
+                            <td>{{b.patronymic}}</td>
+                            <td>{{b.name}}</td>
+                            <td>{{b.get_gender_display}}</td>
+                            <td>{{b.t_number}}</td>
+                            <td>{{b.address}}</td>
+                            <td>{{b.passport}}</td>
+                            <td>{{b.inn}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <h2>Контракты</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Стоимость</th>
+                  <th>Статус</th>
+                  <th>Описание</th>
+                  <th>ID_авто</th>
+                  <th>ID_клиент</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for c in ccc %}
+                        <tr>
+                            <th scope="row">{{c.id}}</th>
+                            <td>{{c.amount}}</td>
+                            <td>{{c.get_status_display}}</td>
+                            <td>{{c.description}}</td>
+                            <td>{{c.auto_id.id}}</td>
+                            <td>{{c.client_id.id}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+	</body>
+</html>
